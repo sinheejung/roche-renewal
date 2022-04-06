@@ -1,0 +1,1056 @@
+.mobile-only{
+    display: none;
+}
+
+
+
+/* header(메뉴바 부분 */
+
+#main-header{
+    width: 100%;
+    height: 80px;
+    box-shadow: 0px 4px 4px -4px rgba(0, 0, 0, 0.25);
+}
+
+#main-header > .container{
+    width: 1440px;
+    margin: 0 auto;
+    position: relative;
+}
+
+#main-header > .container > .logo{
+    position: absolute;
+    left: 25px;
+    top: 22px;
+}
+
+#gnb > ul {
+    display: flex;
+    position: absolute;
+    top: 22px;
+    left: 381px;
+}
+
+#gnb > ul > li{
+    width: 94px;
+    z-index: 15;
+    display: flex;
+    justify-content: center;
+}
+
+#gnb > ul > li > a{
+    font-size: 20px;
+    font-weight: 400;
+    display: block;
+    height: 60px;
+}
+
+#gnb > ul > li:not(:last-child){
+    margin-right: 50px;
+}
+
+#gnb > ul > li > a{
+    color: #000;
+    font-weight: 500;
+    font-size: 20px;
+}
+
+#gnb > ul > li > .depth2{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    height: 65px;
+    top: 60px;
+    z-index: 10;
+    color: #fff;
+    display: none;
+    text-align: center;
+}
+
+#gnb > ul > li > .depth2.on{
+    display: flex;
+    min-width: 400px;
+}
+
+#gnb > ul > li > .depth2 > li > a{
+    color: #fff;
+}
+
+#gnb > ul > li > .depth2 > li > a:hover{
+    color: #FFE816;
+}
+
+#gnb > ul > li > .depth2 > li > span{
+    margin: 0 50px;
+}
+
+#main-header .depth2-box{
+    width: 100vw;
+    margin: 0 auto;
+    background: rgba(18, 105, 205, 0.8);
+    position: absolute;
+    height: 0;
+    top: 80px;
+    z-index: 9;
+    transition: all 0.3s;
+}
+
+#main-header .depth2-box.on{
+    height: 65px;
+    opacity: 1;
+}
+
+
+#site-map{
+    position: absolute;
+    top: 29.33px;
+    right: 25px;
+    background: transparent;
+    border: none;
+}
+
+#site-map:hover{
+    cursor: pointer;
+}
+
+
+
+/* 사이트맵 */
+#sitemap-modal{
+    background: rgba(255, 255, 255, 0.95);
+    width: 100%;
+    height: 100vh;
+    z-index: 999;
+    display: none;
+    position: fixed;
+    top: 0;
+}
+
+#sitemap-modal.on{
+    display: block;
+}
+
+#sitemap-modal .container{
+    width: 1440px;
+    height: 100vh;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+#sitemap-modal .logo{
+    position: absolute;
+    left: 25px;
+    top: 22px;
+}
+
+#sitemap-modal .close{
+    position: absolute;
+    right: 26.29px;
+    top: 31.29px;
+    border: none;
+    background: transparent;
+}
+
+#sitemap-modal .close:hover{
+    cursor: pointer;
+}
+
+#sitemap-modal .sitemap > ul{
+    display: flex;
+    text-align: center;
+}
+
+
+#sitemap-modal .sitemap > ul > li:not(:last-child){
+    margin-right: 50px;
+}
+
+#sitemap-modal .sitemap > ul > li > a{
+    width: 160px;
+    color: #000;
+    font-size: 38px;
+    font-weight: 500;
+    display: block;
+    height: 75px;
+    line-height: 75px;
+    margin-bottom: 40px;
+    border-bottom: 3px solid #333;
+}
+
+
+#sitemap-modal .sitemap .depth2 li a{
+    color: #000;
+    font-size: 26px;
+    font-weight: 400;
+    display: block;
+}
+
+#sitemap-modal .sitemap .depth2 li a:hover{
+    color: #1269CD;
+}
+
+#sitemap-modal .sitemap .depth2 li:not(:last-child){
+    margin-bottom: 50px;
+}
+
+/* * ------------------------------ * Unfolding Animation * ------------------------------ */ #sitemap-modal.on { 
+    /*transform: scaleX(0) scaleY(1);*/ 
+    animation: unfoldIn 1s cubic-bezier(0.165, 0.84, 0.44, 1) forwards; 
+} 
+
+#sitemap-modal.on .container .sitemap { 
+    /* 초기 display: none 처럼 크기를 0 으로 하여 보여주지 않음*/ 
+    transform: scale(0); 
+    /* 0.5 초 동안 애니메이션을 실행, 단 0.8초 지연시켜 0.8초 후에 애니메이션을 실행 */ 
+    animation: zoomIn .5s .8s 
+    cubic-bezier(0.165, 0.84, 0.44, 1) 
+    forwards; 
+}
+
+/* Dimmed showing */ 
+@keyframes unfoldIn { 
+    0% { 
+        transform: scaleX(0) scaleY(0.005); 
+    } 50% { 
+        /* 0.5 초간 세로 크기는 작은상태로 가로 너비만 확대 */ 
+        transform: scaleX(1) scaleY(0.005); 
+    } 100% { 
+        /* 0.5 초간 세로 크기를 확대 */ 
+        transform: scaleY(1) scaleX(1); 
+    } 
+} 
+
+/* Show modal content */ 
+@keyframes zoomIn {
+     from { 
+         transform: scale(0); 
+        } to { 
+        transform: scale(1); 
+        } 
+    } 
+
+    /* Hide modal content */ 
+@keyframes zoomOut {
+     from { 
+        transform: scale(1); 
+        } to { 
+        transform: scale(0); 
+        } 
+    } 
+
+/* Dimmed hiding */ 
+@keyframes unfoldOut { 
+    0% { 
+        transform: scale(1) 
+    } 50% { 
+        transform: scaleX(1) scaleY(0.005); 
+    } 100% { 
+        transform: scaleX(0) scaleY(0.005); 
+    } 
+}
+
+
+
+/* 서브 메뉴 */
+
+#sub-visual{
+    width: 100%;
+    height: 370px;
+    background-image: url(../images/location-visual.jpg);
+    background-position: center;
+    background-size: cover;
+}
+
+#sub-visual .title{
+    width: 1440px;
+    margin: 0 auto;
+    height: 370px;
+    color: #fff;
+    font-size: 18px;
+    padding-top: 113px;
+    padding-left: 120px;
+    -webkit-animation-name: moving-title;
+    -webkit-animation-duration: 3s;
+    animation-name: moving-title;
+    animation-duration: 3s;
+}
+
+@-webkit-keyframes moving-title {
+    from { padding-left: 0%;
+            opacity: 0;
+        }
+    to { padding-left: 120px;
+        opacity: 100%;
+        }
+}
+@keyframes moving-title {
+    from { padding-left: 0%;
+        opacity: 0;
+        }
+    to { padding-left: 120px; 
+        opacity: 100%;
+
+        }
+}
+
+#sub-visual .title > h3{
+    font-size: 48px;
+    margin-bottom: 10px;
+}
+
+
+
+/* 브레드크럼 */
+
+#breadcrumb{
+    width: 1440px;
+    margin: -60px auto;
+    height: 60px;
+    background: rgba(18, 105, 205, 0.7);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+#breadcrumb .sub-menu{
+    position: relative;
+    padding-left: 120px;
+}
+
+#breadcrumb .sub-menu > ul{
+    display: flex;
+    height: 60px;
+    align-items: center;
+    justify-content: start;
+}
+
+#breadcrumb .sub-menu > ul > li{
+    display: flex;
+    align-items: center;
+}
+
+
+#breadcrumb .sub-menu > ul > li:hover{
+    cursor: pointer;
+}
+
+#breadcrumb .sub-menu > ul > li:first-child > a{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 25px;
+}
+
+#breadcrumb .sub-menu > ul > li:not(:first-child){
+    width: 200px;
+    height: 60px;
+    color: #fff;
+    font-size: 18px;
+}
+
+#breadcrumb .border{
+    margin-right: 40px;
+    width: 2px;
+    height: 42px;
+    background: rgb(255, 255, 255,0.5);
+}
+
+#breadcrumb .sub-menu > ul > li:not(:first-child) > img{
+    margin-left: 30px;
+}
+
+#breadcrumb .sub-menu > ul > li > ul{
+    position: absolute;
+    top: 60px;
+}
+
+#breadcrumb .sub-menu > ul > li > ul > li{
+    width: 200px;
+    height: 60px;
+    background: rgba(18, 106, 206, 0.9);
+    border-top: 2px solid rgba(255, 255, 255, 0.4);
+    line-height: 60px;
+}
+
+#breadcrumb .sub-menu > ul > li > ul > li:hover{
+    background: rgb(18, 106, 206);
+}
+
+
+#breadcrumb .sub-menu > ul > li > ul{
+    height: 0;
+    opacity: 0;
+    overflow: hidden;
+    transition: all 0.3s;
+}
+
+#breadcrumb .sub-menu > ul > li > ul.depth1.on{
+    height: 300px;
+    opacity: 1;
+}
+
+#breadcrumb .sub-menu > ul > li > ul> li > a{
+    display: block;
+    width: 200px;
+    padding-left: 40px;
+}
+
+#breadcrumb .sub-menu > ul > li > ul.depth2.on{
+    height: 100%;
+    opacity: 1;
+}
+
+#breadcrumb .sub-menu > ul > li > ul > li > a{
+    color: #fff;
+    font-size: 18px;
+}
+
+#breadcrumb > .sub-menu > a{
+    position: absolute;
+    height: 60px;
+    top: 0;
+    right: 120px;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    text-transform: uppercase;
+    font-size: 14px;
+}
+
+#breadcrumb .sub-menu > a > .border{
+    margin-right: 20px;
+}
+
+#breadcrumb .sub-menu > a > img{
+    margin-left: 20px;
+}
+
+
+
+
+/* faq 본문 */
+
+section .btn{
+    display: flex; 
+}
+
+section .contact-btn{
+    width: 600px;
+    height: 70px;
+    border: none;
+    color: #fff;
+    font-size: 20px;
+    font-weight: 500;
+    background: rgba(21, 74, 136, 0.5);
+}
+
+section .contact-btn:hover{
+    cursor: pointer;
+    background : #154A88;
+
+}
+
+section .contact-btn.this{
+    background : #154A88;
+}
+
+main{
+    margin-top: 100px;
+    padding-top: 180px;
+    width: 1440px;
+    height: 100%;
+    margin: 0 auto;
+    padding-bottom: 120px;
+}
+
+#faq section .container{
+    width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main > section > .container > h3{
+    font-size: 60px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 60px;
+}
+
+#faq .container .info-box{
+    width: 1200px;
+    padding: 22px 15px;
+    display: block;
+    height: 100px;
+    overflow: hidden;
+    border-bottom: 2px solid #71A5E1;
+}
+
+#faq .container .info-box.on{
+    height: 100%;
+}
+
+#faq .container .info-box:nth-child(2){
+    border-top: 4px solid #71A5E1;
+}
+
+#faq .container .info-box:last-child{
+    border-bottom: 4px solid #71A5E1;
+}
+
+
+#faq .container .info-box .title{
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-bottom: 30px;
+}
+
+#faq .container .info-box .title > img:first-child{
+    margin-right: 25px;
+}
+
+#faq .container .info-box .title > h4{
+    font-size: 26px;
+    font-weight: 400;
+    display: inline-block;
+}
+
+#faq .container .info-box .title > h4:hover{
+    cursor: pointer;
+}
+
+#faq .container .info-box .title > button{
+    position: absolute;
+    right: 0;
+    border: none;
+    background: transparent;
+}
+
+#faq .container .info-box .title > button:hover{
+    cursor: pointer;
+}
+
+#faq .container .info-box .title > button > img{
+    height: 36.75px;
+    width: 36.75px;
+}
+
+#faq .container .info-box > .answer{
+    margin-left: 97px;
+    font-size: 16px;
+}
+
+#faq .container .info-box > .answer a {
+    color: #000;
+    font-weight: 500;
+}
+
+#faq .container .info-box > .answer a:hover{
+    text-decoration: underline;
+}
+
+
+/* 1:1 문의 */
+
+#contact-2{
+    width: 1440px;
+    margin: 0 auto;
+}
+
+#contact-2 section h3{
+    font-size: 60px;
+    font-weight: 500;
+    text-align: center;
+    margin-top: 75px;
+    margin-bottom: 60px;
+
+}
+
+#contact-2 section > p{
+    font-size: 14px;
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+#contact-2 form {
+    margin-top: 40px;
+    width: 974px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+#contact-2 form p{
+    text-align: left;
+}
+
+#contact-2 form fieldset{
+    border: none;
+}
+
+#contact-2 form fieldset legend{
+    font-size: 32px;
+    font-weight: 500;
+}
+
+#contact-2 form .agreement{
+    margin-bottom: 100px;
+}
+
+#contact-2 form .agreement > p{
+    font-size: 16px;
+    text-align: left;
+    margin-top: 30px;
+    margin-bottom: 15px;
+}
+
+#contact-2 form > .agreement > table {
+    border-collapse: collapse;
+    caption-side: bottom;
+    margin-bottom: 25px;
+    font-size: 16px;
+}
+
+#contact-2 form > .agreement > table td{
+    border: 2px solid #71A5E1;
+    border-collapse: collapse;
+}
+
+#contact-2 form > .agreement > table > caption{
+    font-size: 14px;
+    color: #666;
+    margin-top: 5px;
+}
+
+#contact-2 form > .agreement > table td{
+    padding: 14px 57px 14px 25px;
+}
+
+
+#contact-2 form > .agreement > label{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#contact-2 form > .agreement > label > span{
+    font-size: 16px;
+    margin-right: 10px;
+}
+
+#contact-2 form > .agreement input[type="checkbox"]{
+    width: 24px;
+    height: 24px;
+}
+
+#contact-2 form > .inquiry .container{
+    display: flex;
+    height: 100px;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 2px solid #71A5E1;
+}
+
+#contact-2 form > .inquiry .container:nth-child(2){
+    border-top: 4px solid #71A5E1;
+    margin-top: 30px;
+}
+
+#contact-2 form > .inquiry .container > p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+#contact-2 form > .inquiry label{
+    font-size: 16px;
+    font-weight: 500;
+}
+
+
+#contact-2 form > .inquiry select{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #71A5E1;
+    text-align: center;
+    font-size: 14px;
+}
+
+#contact-2 form > .inquiry input{
+    width: 200px;
+    height: 40px;
+    border: 1px solid #71A5E1;
+    font-size: 14px;
+}
+
+
+#contact-2 form > .inquiry .container > #client{
+    margin-right: 50px;
+    margin-left: 51px;
+}
+
+#contact-2 form > .inquiry .container > #category{
+    margin-left: 51px;
+
+}
+
+#contact-2 form > .inquiry .container #name{
+    margin-left: 84px;
+    margin-right: 50px;
+}
+
+#contact-2 form > .inquiry .container #gender{
+    margin-left: 84px;
+}
+
+#contact-2 form > .inquiry .container #mail{
+    margin-left: 70px;
+    margin-right: 50px;
+}
+
+#contact-2 form > .inquiry .container #phone{
+    margin-left: 63px;
+}
+
+#contact-2 form > .inquiry .container:nth-child(5) p{
+    margin-right: 57px;
+}
+
+#contact-2 form > .inquiry #response1{
+    margin-left: 10px;
+    margin-right: 40px;
+}
+
+#contact-2 form > .inquiry #response2{
+    margin-left: 10px;
+}
+
+#contact-2 form > .inquiry input[type="checkbox"]{
+    width: 20px;
+    height: 20px;
+}
+
+#contact-2 form > .inquiry .container:nth-child(6){
+    flex-wrap: wrap;
+    height: 142px;
+}
+
+
+#contact-2 form > .inquiry .container:nth-child(6) label:first-child input{
+    margin-left: 53px;
+    margin-right: 50px;
+}
+
+#contact-2 form > .inquiry .container:nth-child(6) label:nth-child(2) input{
+    margin-left: 22px;
+}
+
+
+#contact-2 form > .inquiry .container:nth-child(6) > p{
+    font-size: 14px;
+    color: #666;
+}
+
+#contact-2 form > .inquiry .container:nth-child(7){
+    height: 100%;
+    padding: 35px 0;
+}
+
+#contact-2 form > .inquiry .container #text{
+    margin-left: 20px;
+    resize: none;
+    border: 1px solid #71A5E1;
+}
+
+#contact-2 form > .inquiry .container:nth-child(8) input{
+    border: none;
+}
+
+
+.filebox input[type="file"] {
+    position: absolute;
+    width: 0;
+    height: 0;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+  }
+  
+  .filebox{
+      display: flex;
+      height: 100px;
+      align-items: center;
+      border-bottom: 4px solid #71A5E1;
+  }
+
+  .filebox > p{
+      margin-right: 32px;
+      font-size: 16px;
+      font-weight: 500;
+  }
+  
+  .filebox label {
+    height: 40px;
+    padding: 8px 15px;
+    color: #fff;
+    background-color: #1269CD;
+    cursor: pointer;
+  }
+  
+  /* named upload */
+  .filebox .upload-name {
+    height: 40px;
+    font-size: 16px; 
+    padding: 0 10px;
+    border: 2px solid #71A5E1;
+  }
+
+  form > .text-box{
+      font-size: 16px;
+      color: #333;
+      margin-top: 25px;
+      margin-bottom: 40px;
+  }
+
+#submit-btn{
+    width: 300px;
+    height: 100px;
+    background: #1269CD;
+    color: #fff;
+    font-size: 32px;
+    font-weight: 500;
+    border: none;
+}
+
+#submit-btn:hover{
+    cursor: pointer;
+}
+
+
+
+
+/* 문의내역 확인 */
+
+#contact-3{
+    width: 1440px;
+    margin: 0 auto;
+}
+
+#contact-3 .container{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-3 .container > h3{
+    margin-bottom: 20px;
+}
+
+#contact-3 .container > p{
+    font-size: 14px;
+    text-align: center;
+
+}
+
+#contact-3 #login{
+    margin-top: 25px;
+    width: 300px;
+}
+
+#contact-3 label{
+    display: none;
+}
+
+#contact-3 form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#contact-3 .form-group{
+    width: 100%;
+    outline: 1px solid #ccc;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+#contact-3 input{
+    width: 100%;
+    display: block;
+    padding: 10px;
+    border-style: none;
+    font-size: 18px;
+    color: #999;
+    padding-left: 25px;
+}
+
+#contact-3 input[type=submit]{
+    background: #1269CD;
+    width: 150px;
+    color: #fff;
+    font-size: 18px;
+    padding-left: 0;
+    padding-right: 0;
+    margin-top: 10px;
+}
+
+#contact-3 input[type=submit]:hover{
+    cursor: pointer;
+}
+
+/* 메인 footer */
+
+#main-footer{
+    margin: 0 auto;
+    width: 100%;
+    height: 100%;
+    background: #072242;
+    padding-bottom: 15px;
+}
+
+#main-footer .ft-top{
+    width: 1440px;
+    margin: 0 auto;
+    height: 63px;
+    position: relative;
+}
+
+#main-footer .ft-menu{
+    display: flex;
+    position: absolute;
+    top: 20px;
+    left: 30px;
+}
+
+#main-footer .ft-menu li > a{
+    color: #fff;
+    font-size: 16px;
+}
+
+#main-footer .ft-menu li > span{
+    margin-right: 30px;
+    margin-left: 30px;
+    color: #fff;
+    font-size: 14px;
+}
+
+#family-site{
+    width: 287px;
+    height: 63px;
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    padding: 19px 20px;
+    background: rgba(255, 255, 255, 0.6);
+    border: none;
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+#family-site:hover{
+    cursor: pointer;
+}
+
+#family-site > img{
+    margin-left: 110px;
+}
+
+#main-footer .ft-top .family-site-list{
+    position: absolute;
+    right: 0;
+    top: -129px;
+    display: none;
+}
+
+#main-footer .ft-top .family-site-list.on{
+    display: block;
+}
+
+#main-footer .ft-top .family-site-list li{
+    width: 287px;
+    height: 65px;
+    background: rgba(200, 215, 232, 0.8);
+}
+
+#main-footer .ft-top .family-site-list li a{
+    display: block;
+    width: 287px;
+    height: 65px;
+    padding-left: 20px;
+    padding-top: 21px;
+    color: #000;
+    font-size: 20px;
+}
+
+
+#main-footer .ft-bottom{
+    width: 1440px;
+    margin: 0 auto;
+    height: 146px;
+    border-top: 1px solid #c4c4c4;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding-left: 30px;
+}
+
+#main-footer .ft-bottom > img{
+    margin-right: 36px;
+}
+
+#main-footer .ft-bottom .text{
+    width: 661px;
+    color: #fff;
+    font-size: 12px;
+    text-align: justify;
+}
+
+#main-footer .ft-bottom .text p:first-child{
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+#main-footer .ft-bottom .text p:first-child > span{
+    font-size: 12px;
+    margin-right: 1em;
+    margin-left: 1em;
+}
+
+#main-footer .ft-bottom .sns ul{
+    display: flex;
+    width: 170px;
+    justify-content: space-between;
+    margin-left: 310px;
+}
+
+#main-footer .ft-bottom > button{
+    width: 72px;
+    height: 72px;
+    border-radius: 50%;
+    background-color: #51647A;
+    color: #fff;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 30px;
+    right: 20px;
+}
+
+#main-footer .ft-bottom > button:hover{
+    cursor: pointer;
+    font-size: 14px;
+}
+
+#main-footer .ft-bottom > button > img{
+    margin-bottom: 5px;
+}
